@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>GuessNumber</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			#box{
+				width: 350px;
+				height: 400px;
+				margin: 10px auto 0px;
+				/* background-color: #FF0000; */
+				text-align: center;
+			}
+			#num{
+				display: block;
+				width: 105px;
+				height: 55px;
+				/* background: whitesmoke; */
+				line-height: 55px;
+				text-align: center;
+				font-size: 23px;
+				font-weight: bold;
+				margin: 40px auto 10px;
+				border: 1px solid gainsboro;
+				
+			}
+			#box button{
+				text-align: center;
+				width: 105px;
+				height: 30px;
+				border: 1px solid gray;
+				margin-bottom: 15px;
+				background-color: #ebebeb;
+				font-weight: bold;
+			}
+			#box p{
+				color: #808080;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="box">
+			<h3>猜数字游戏</h3>
+			<br>
+			<h5>现在已生成一个1-100的数字,猜中有奖</h4>
+			
+			<input type="" name="" id="num" value="" placeholder="Input"/>
+			
+			<button type="button" id="but">
+				确定
+			</button>
+			<br>
+			<p id="pp">提示:...</p>
+		</div>
+		
+		<script type="text/javascript">
+			var random = parseInt(Math.random()*100) + 1;
+			var oNum = document.getElementById("num");
+			var oBtn = document.getElementById("but");
+			var oP = document.getElementById("pp");
+			
+			oBtn.onclick = function(){
+				// 没有输入
+				//alert("1");
+				// console.log(oNum.value);
+				if(oNum.value != ""){
+					var number = Number(oNum.value)
+					if(number >100){
+						alert("Please Input 1~100")
+					}else if(number > random){
+						oP.innerHTML = "大了";
+					}else if(number < random){
+						oP.innerHTML = "小了";
+					}else{
+						oP.innerHTML = "猜对了"
+						alert("Bingo!")
+					}
+				}else{
+					alert("Please Input Number")
+				}
+				
+				
+			}
+			
+		</script>
+	</body>
+</html>
