@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格生成器</title>
+		<style type="text/css">
+			*{margin:0px; padding: 0px;}
+			#box{
+				margin: 10px auto 0px;
+				background-color: beige;
+				width: 1000px;
+				height: 1000px;
+				text-align: center;
+			}
+			input{
+				margin-right: 50px;
+			}
+			button{
+				width: 80px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="box">
+			<input type="number" name="" id="row" value="" placeholder="row#"/>
+			<input type="number" name="" id="col" value="" placeholder="col#"/>
+			<button type="button" id="but1">Make Table</button>
+			<br>
+			
+		</div>
+		
+		<script type="text/javascript">
+			//需求: 两个输入框，一个输入行，一个输入列，点击按钮，自动生成对应表格
+			obox = document.getElementById("box");
+			oRow = document.getElementById("row");
+			oCol = document.getElementById("col");
+			oBt = document.getElementById("but1");
+			var table = '<table border="1px" width="500px" height="300px">';
+			
+			oBt.onclick = function(){
+				// alert(111);
+				// 拿到了user输入的行和列的个数
+				rowNumber = Number(oRow.value);
+				colNumber = Number(oCol.value);
+				
+				// 写出来table;
+				var strrow = "";
+				var strcol = "";
+				for(var i=1; i<= colNumber; i++){
+					strcol = strcol + "<td>" + i +"</td>";
+				}
+				// alert(strcol);
+				for (var i=1; i<=rowNumber; i++){
+					strrow = strrow + "<tr>" + strcol + "</tr>";
+				}
+				// alert(strrow);
+				table = table + strrow + "</table>"
+				
+				obox.innerHTML += table;
+				
+			}
+			
+		</script>
+	</body>
+</html>
